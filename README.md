@@ -67,6 +67,10 @@
     ```shell
     php artisan db:seed
     ```
+7. Create api keys
+   ```shell
+    php artisan passport:install
+    ```
 7. Run service locally 
     ```shell
     php artisan serve
@@ -115,14 +119,11 @@ curl --location --request GET 'http://localhost:8000/api/users' \
 
 Should return array of users.
 
-#### 
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
 
 
+### Test
+
+Run `php artisan test tests/Feature`
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -147,28 +148,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@github.com/shorif2000/api
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
-
-
-
+Sharif Uddin
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
