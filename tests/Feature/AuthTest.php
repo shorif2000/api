@@ -10,13 +10,13 @@ class AuthTest extends TestCase
 
     public function testRequiredFieldsForRegistration()
     {
-        $this->json('POST', 'api.register')
+        $this->json('POST', 'api/register')
             ->assertStatus(422)
             ->assertJson([
                 "message" => "The given data was invalid.",
                 "errors" => [
-                    "givenName" => ["The givenName field is required."],
-                    "familyName" => ["The familyName field is required."],
+                    "givenName" => ["The given name field is required."],
+                    "familyName" => ["The family name field is required."],
                     "email" => ["The email field is required."],
                     "password" => ["The password field is required."],
                 ]
@@ -32,7 +32,7 @@ class AuthTest extends TestCase
             'password' => 'secret1234',
         ];
 
-        $this->json('POST', 'api.register', $userData, ['Accept' => 'application/json'])
+        $this->json('POST', 'api/register', $userData, ['Accept' => 'application/json'])
             ->assertStatus(422)
             ->assertJson([
                 "message" => "The given data was invalid.",
