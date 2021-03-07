@@ -29,11 +29,11 @@ Route::post('register', 'App\Http\Controllers\RegisterController@register');
 */
 Route::middleware('auth:api')->group(function () {
     //Route::post('/logout', 'App\Http\Controllers\API\AuthController@logout')->name('api.logout');
-    Route::get('users', 'App\Http\Controllers\API\UserController@index');
+    Route::get('users', 'App\Http\Controllers\API\UserController@index')->name('api.users');
     Route::get('users/{user}', 'App\Http\Controllers\API\UserController@show');
-    Route::post('users', 'App\Http\Controllers\API\UserController@store');
+    Route::post('users', 'App\Http\Controllers\API\UserController@store')->name('api.users');
     Route::put('users/{user}', 'App\Http\Controllers\API\UserController@update');
-    Route::delete('users/{user}', 'App\Http\Controllers\API\UserController@destroy');
+    Route::delete('users/{user}', 'App\Http\Controllers\API\UserController@destroy')->name('api.users');
 });
 
 /*
