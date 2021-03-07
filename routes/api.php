@@ -1,9 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\API\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,13 +28,12 @@ Route::group(['middleware' => ['cors', 'json.response']], function () {
 Route::post('register', 'App\Http\Controllers\RegisterController@register');
 */
 Route::middleware('auth:api')->group(function () {
-    Route::post('/logout', 'App\Http\Controllers\API\AuthController@logout')->name('logout.api');
+    Route::post('/logout', 'App\Http\Controllers\API\AuthController@logout')->name('api.logout');
     Route::get('users', 'App\Http\Controllers\API\UserController@index');
     Route::get('users/{user}', 'App\Http\Controllers\API\UserController@show');
     Route::post('users', 'App\Http\Controllers\API\UserController@store');
     Route::put('users/{user}', 'App\Http\Controllers\API\UserController@update');
     Route::delete('users/{user}', 'App\Http\Controllers\API\UserController@delete');
-
 });
 
 /*
@@ -45,7 +42,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 */
 
-Route::post('register', [AuthController::class, 'register'])->name('register');
-Route::post('login', [AuthController::class, 'login']);
+Route::post('register', [AuthController::class, 'register'])->name('api.register');
+Route::post('login', [AuthController::class, 'login'])->name('api.login');
 
 //Route::apiResource('users', UserController::class)->middleware('auth:api');

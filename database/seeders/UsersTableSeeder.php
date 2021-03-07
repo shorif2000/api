@@ -23,7 +23,8 @@ class UsersTableSeeder extends DatabaseSeeder
                 'givenName' => $faker->name,
                 'email' => $faker->email,
                 'familyName' => $faker->name,
-                'created_at'=> now()
+                'created_at'=> now(),
+                'password'=>$faker->password,
             ]);
         }
     }
