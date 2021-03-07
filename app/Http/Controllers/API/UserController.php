@@ -7,7 +7,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\UserResource;
+use Vyuldashev\LaravelOpenApi\Attributes as OpenApi;
 
+#[OpenApi\PathItem]
 class UserController extends Controller
 {
     /**
@@ -15,6 +17,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    #[OpenApi\Operation]
     public function index()
     {
         //$users = User::all();
@@ -28,6 +31,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    #[OpenApi\Operation]
     public function store(Request $request)
     {
         /*$data = $request->all();
@@ -51,6 +55,18 @@ class UserController extends Controller
         return response()->json($user, 201);
     }
 
+    #[OpenApi\Operation]
+    public function show($id){
+        if (User::where('id', $id)->exists()) {
+            $user = User::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
+            return response($user, 200);
+        } else {
+            return response()->json([
+                "message" => "User not found"
+            ], 404);
+        }
+    }
+
     /**
      * Display the specified resource.
      *
@@ -70,6 +86,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
+    #[OpenApi\Operation]
     public function update(Request $request, User $user)
     {
         /*$user->update($request->all());
@@ -86,6 +103,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
+    #[OpenApi\Operation]
     public function destroy(User $user)
     {
         /*$user->delete();

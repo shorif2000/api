@@ -28,12 +28,12 @@ Route::group(['middleware' => ['cors', 'json.response']], function () {
 Route::post('register', 'App\Http\Controllers\RegisterController@register');
 */
 Route::middleware('auth:api')->group(function () {
-    Route::post('/logout', 'App\Http\Controllers\API\AuthController@logout')->name('api.logout');
+    //Route::post('/logout', 'App\Http\Controllers\API\AuthController@logout')->name('api.logout');
     Route::get('users', 'App\Http\Controllers\API\UserController@index');
     Route::get('users/{user}', 'App\Http\Controllers\API\UserController@show');
     Route::post('users', 'App\Http\Controllers\API\UserController@store');
     Route::put('users/{user}', 'App\Http\Controllers\API\UserController@update');
-    Route::delete('users/{user}', 'App\Http\Controllers\API\UserController@delete');
+    Route::delete('users/{user}', 'App\Http\Controllers\API\UserController@destroy');
 });
 
 /*
